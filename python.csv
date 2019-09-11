@@ -1,0 +1,9 @@
+compra,fecha,tipo,venta
+"$ 54,00",,Dólar Banco Nación,"$ 57,00"
+"$ 58,50",,Dólar Blue,"$ 59,00"
+"$ 65,59",,Dólar cdo c/liqui,"$ 67,61"
+,11/09/2019,,
+compra,tipo,venta
+"$ 54,00",Dólar Banco Nación,"$ 57,00"
+"$ 58,50",Dólar Blue,"$ 59,00"
+"$ 66,20",Dólar cdo c/liqui,"$ 67,64"
