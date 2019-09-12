@@ -1,2 +1,2 @@
 # scriptweb
-scrapting de web para sacar valores
+scraping de web para sacar valores
