@@ -8,6 +8,9 @@ from scrapy.loader import ItemLoader
 from scrapy.selector import Selector
 from scrapy.loader.processors import MapCompose
 import csv
+from scrapy.exporters import CsvItemExporter
+
+
 
 class Moneda(Item):
     tipo = Field()
@@ -30,8 +33,8 @@ class ElCronista(Spider):
         for i, elem in enumerate(cotis[1:2]):
             item = ItemLoader(Moneda(), elem)
            
-            item.add_xpath('compra', './/td[@id="dcompra0"]/text()') 
-            item.add_xpath('venta', './/td[@id="dventa0"]/text()')
+            item.add_xpath('compra', './/td[@id="dcompra0"]/text()',MapCompose(lambda j: j[2:7])) 
+            item.add_xpath('venta', './/td[@id="dventa0"]/text()',MapCompose(lambda j: j[2:7]))
             item.add_xpath('tipo', './/td/a/text()', MapCompose(lambda j: j[15:33]))
             
             yield item.load_item()
@@ -39,8 +42,8 @@ class ElCronista(Spider):
         for i, elem in enumerate(cotis[2:3]):
             item = ItemLoader(Moneda(), elem)
            
-            item.add_xpath('compra', './/td[@id="dcompra1"]/text()') 
-            item.add_xpath('venta', './/td[@id="dventa1"]/text()')
+            item.add_xpath('compra', './/td[@id="dcompra1"]/text()',MapCompose(lambda j: j[2:7])) 
+            item.add_xpath('venta', './/td[@id="dventa1"]/text()',MapCompose(lambda j: j[2:7]))
             item.add_xpath('tipo', './/td/a/text()', MapCompose(lambda j: j[15:25]))
            
             yield item.load_item()
@@ -48,8 +51,8 @@ class ElCronista(Spider):
         for i, elem in enumerate(cotis[3:]):
             item = ItemLoader(Moneda(), elem)
           
-            item.add_xpath('compra', './/td[@id="dcompra2"]/text()')
-            item.add_xpath('venta', './/td[@id="dventa2"]/text()')
+            item.add_xpath('compra', './/td[@id="dcompra2"]/text()',MapCompose(lambda j: j[2:7]))
+            item.add_xpath('venta', './/td[@id="dventa2"]/text()',MapCompose(lambda j: j[2:7]))
             item.add_xpath('tipo', './/td/a/text()', MapCompose(lambda j: j[11:28]))
             yield item.load_item()
 
